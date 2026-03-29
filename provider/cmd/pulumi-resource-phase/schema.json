@@ -11,6 +11,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`phase` Terraform Provider](https://github.com/phasehq/terraform-provider-phase).",
     "repository": "https://github.com/jgautheron/pulumi-phase",
+    "logoUrl": "https://raw.githubusercontent.com/jgautheron/terraform-phase/main/assets/phase-logo.svg",
     "pluginDownloadURL": "github://api.github.com/jgautheron/pulumi-phase",
     "publisher": "jgautheron",
     "meta": {

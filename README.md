@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/phase-logo.svg" alt="Phase" width="64">
+</p>
+
 # Pulumi Phase Provider
 
 A Pulumi provider for managing secrets with [Phase.dev](https://phase.dev), bridged from the [Phase Terraform Provider](https://github.com/phasehq/terraform-provider-phase).

@@ -27,6 +27,7 @@ func Provider() tfbridge.ProviderInfo {
 		Version:           version.Version,
 		DisplayName:       "Phase",
 		Publisher:         "jgautheron",
+		LogoURL:           "https://raw.githubusercontent.com/jgautheron/terraform-phase/main/assets/phase-logo.svg",
 		PluginDownloadURL: "github://api.github.com/jgautheron/pulumi-phase",
 		Description:       "A Pulumi provider for managing secrets with Phase.dev.",
 		Keywords:          []string{"phase", "secrets", "category/cloud"},
