@@ -1,0 +1,3 @@
+name: phase
+description: A Pulumi resource provider for phase.
+language: nodejs

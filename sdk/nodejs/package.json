@@ -1,0 +1,29 @@
+{
+    "name": "@jgautheron/pulumi-phase",
+    "version": "0.1.0-alpha.0+dev",
+    "description": "A Pulumi provider for managing secrets with Phase.dev.",
+    "keywords": [
+        "phase",
+        "secrets",
+        "category/cloud"
+    ],
+    "homepage": "https://phase.dev",
+    "repository": "https://github.com/jgautheron/pulumi-phase",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.142.0"
+    },
+    "devDependencies": {
+        "@types/node": "^18",
+        "typescript": "^4.3.5"
+    },
+    "pulumi": {
+        "resource": true,
+        "name": "phase",
+        "version": "0.1.0-alpha.0+dev",
+        "server": "github://api.github.com/jgautheron/pulumi-phase"
+    }
+}

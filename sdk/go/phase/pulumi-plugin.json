@@ -1,0 +1,6 @@
+{
+  "resource": true,
+  "name": "phase",
+  "version": "0.1.0-alpha.0+dev",
+  "server": "github://api.github.com/jgautheron/pulumi-phase"
+}

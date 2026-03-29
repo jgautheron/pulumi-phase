@@ -1,0 +1,369 @@
+{
+    "name": "phase",
+    "displayName": "Phase",
+    "description": "A Pulumi provider for managing secrets with Phase.dev.",
+    "keywords": [
+        "phase",
+        "secrets",
+        "category/cloud"
+    ],
+    "homepage": "https://phase.dev",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`phase` Terraform Provider](https://github.com/phasehq/terraform-provider-phase).",
+    "repository": "https://github.com/jgautheron/pulumi-phase",
+    "pluginDownloadURL": "github://api.github.com/jgautheron/pulumi-phase",
+    "publisher": "jgautheron",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "go": {
+            "importBasePath": "github.com/jgautheron/pulumi-phase/sdk/go/phase",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "nodejs": {
+            "packageName": "@jgautheron/pulumi-phase",
+            "packageDescription": "A Pulumi provider for managing secrets with Phase.dev.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/phasehq/terraform-provider-phase)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-phase` repo](https://github.com/jgautheron/pulumi-phase/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-phase` repo](https://github.com/phasehq/terraform-provider-phase/issues).",
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "python": {
+            "packageName": "pulumi_phase",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/phasehq/terraform-provider-phase)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-phase` repo](https://github.com/jgautheron/pulumi-phase/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-phase` repo](https://github.com/phasehq/terraform-provider-phase/issues).",
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
+            "pyproject": {
+                "enabled": true
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "host": {
+                "type": "string",
+                "description": "The host URL for the Phase API. Can be set with PHASE_HOST environment variable."
+            },
+            "phaseToken": {
+                "type": "string",
+                "description": "The token for authenticating with Phase. Can be a service token or a personal access token (PAT). Can be set with PHASE_TOKEN, PHASE_SERVICE_TOKEN, or PHASE_PAT_TOKEN environment variables.",
+                "defaultInfo": {
+                    "environment": [
+                        "PHASE_TOKEN",
+                        "PHASE_SERVICE_TOKEN",
+                        "PHASE_PAT_TOKEN"
+                    ]
+                },
+                "secret": true
+            },
+            "skipTlsVerification": {
+                "type": "boolean",
+                "description": "Whether to skip SSL/TLS certificate validation for the PHASE_HOST. Defaults to false."
+            }
+        },
+        "defaults": [
+            "phaseToken"
+        ]
+    },
+    "types": {
+        "phase:index/SecretOverride:SecretOverride": {
+            "properties": {
+                "isActive": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "isActive",
+                "value"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the phase package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "host": {
+                "type": "string",
+                "description": "The host URL for the Phase API. Can be set with PHASE_HOST environment variable."
+            },
+            "phaseToken": {
+                "type": "string",
+                "description": "The token for authenticating with Phase. Can be a service token or a personal access token (PAT). Can be set with PHASE_TOKEN, PHASE_SERVICE_TOKEN, or PHASE_PAT_TOKEN environment variables.",
+                "secret": true
+            },
+            "skipTlsVerification": {
+                "type": "boolean",
+                "description": "Whether to skip SSL/TLS certificate validation for the PHASE_HOST. Defaults to false."
+            }
+        },
+        "inputProperties": {
+            "host": {
+                "type": "string",
+                "description": "The host URL for the Phase API. Can be set with PHASE_HOST environment variable."
+            },
+            "phaseToken": {
+                "type": "string",
+                "description": "The token for authenticating with Phase. Can be a service token or a personal access token (PAT). Can be set with PHASE_TOKEN, PHASE_SERVICE_TOKEN, or PHASE_PAT_TOKEN environment variables.",
+                "defaultInfo": {
+                    "environment": [
+                        "PHASE_TOKEN",
+                        "PHASE_SERVICE_TOKEN",
+                        "PHASE_PAT_TOKEN"
+                    ]
+                },
+                "secret": true
+            },
+            "skipTlsVerification": {
+                "type": "boolean",
+                "description": "Whether to skip SSL/TLS certificate validation for the PHASE_HOST. Defaults to false."
+            }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:phase/terraformConfig"
+        }
+    },
+    "resources": {
+        "phase:index/secret:Secret": {
+            "properties": {
+                "appId": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "env": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "override": {
+                    "$ref": "#/types/phase:index/SecretOverride:SecretOverride"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "appId",
+                "createdAt",
+                "env",
+                "key",
+                "updatedAt",
+                "value",
+                "version"
+            ],
+            "inputProperties": {
+                "appId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "env": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "key": {
+                    "type": "string"
+                },
+                "override": {
+                    "$ref": "#/types/phase:index/SecretOverride:SecretOverride"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "env",
+                "key",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Secret resources.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "comment": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "env": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "override": {
+                        "$ref": "#/types/phase:index/SecretOverride:SecretOverride"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string",
+                        "secret": true
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "phase:index/getSecrets:getSecrets": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecrets.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string"
+                    },
+                    "env": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "appId",
+                    "env"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSecrets.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string"
+                    },
+                    "env": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "secrets": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "secret": true,
+                        "type": "object"
+                    },
+                    "tags": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "appId",
+                    "env",
+                    "secrets",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:phase/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/provider"
+                    }
+                },
+                "type": "pulumi:providers:phase/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}
