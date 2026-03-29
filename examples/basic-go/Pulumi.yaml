@@ -1,0 +1,3 @@
+name: phase-basic-go
+runtime: go
+description: A basic example of the Phase Pulumi provider in Go

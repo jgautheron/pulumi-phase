@@ -1,0 +1,19 @@
+template: external-bridged-provider
+provider: phase
+organization: jgautheron
+major-version: 0
+providerDefaultBranch: main
+upstreamProviderOrg: phasehq
+publishRegistry: false
+languages:
+  - go
+  - nodejs
+  - python
+publish:
+  sdk: "all,!dotnet,!java"
+  cdn: false
+pulumiConvert: 1
+github-app:
+  enabled: false
+esc:
+  enabled: false
