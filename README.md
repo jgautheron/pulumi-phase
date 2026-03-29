@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/phase-logo.svg" alt="Phase" width="64">
+  <img src="assets/phase-logo.png" alt="Phase" width="64">
 </p>
 
 # Pulumi Phase Provider
