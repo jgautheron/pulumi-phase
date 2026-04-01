@@ -1,15 +1,18 @@
 package phase
 
 import (
-	_ "embed"
 	"path"
+
+	// embed is used to embed the bridge-metadata.json file
+	_ "embed"
+
+	"github.com/phasehq/terraform-provider/shim"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 
 	"github.com/jgautheron/pulumi-phase/provider/pkg/version"
-	"github.com/phasehq/terraform-provider/shim"
 )
 
 const (

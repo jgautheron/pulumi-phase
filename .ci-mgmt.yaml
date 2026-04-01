@@ -6,14 +6,15 @@ providerDefaultBranch: main
 upstreamProviderOrg: phasehq
 publishRegistry: false
 languages:
-  - go
-  - nodejs
-  - python
+    - go
+    - nodejs
+    - python
 publish:
-  sdk: "all,!dotnet,!java"
-  cdn: false
+    sdk: "all,!dotnet,!java"
+    cdn: false
+license:
+    ignore:
+        - github.com/phasehq/terraform-provider/shim
 pulumiConvert: 1
 github-app:
-  enabled: false
-esc:
-  enabled: false
+    enabled: false

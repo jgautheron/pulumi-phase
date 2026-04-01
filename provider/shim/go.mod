@@ -1,6 +1,6 @@
 module github.com/phasehq/terraform-provider/shim
 
-go 1.22.5
+go 1.25.8
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
